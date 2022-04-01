@@ -25,7 +25,9 @@ gravatar = Gravatar(app,
                     base_url=None)
 
 ##CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+HEROKU_DATABASE_URI = os.environ.get("DATABASE_URL")
+SQLALCHEMY_DATABASE_URI = f"{HEROKU_DATABASE_URI[:8]}ql{HEROKU_DATABASE_URI[8:]}"
+app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
