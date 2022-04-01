@@ -25,3 +25,4 @@ setuptools==60.2.0
 charset-normalizer==2.0.12
 wheel==0.37.1
 colorama==0.4.4
+psycopg2-binary==2.9.3
